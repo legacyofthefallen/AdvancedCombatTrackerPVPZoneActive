@@ -132,11 +132,12 @@
   <data name="dateTimeOfLogLine" xml:space="preserve">
     <value>dateTimeOfLogLine</value>
   </data>
-  <data name="DirectDamageSpell" xml:space="preserve">
-    <value>Direct Damage Spell</value>
-  </data>
   <data name="PVPAreaEnter" xml:space="preserve">
     <value>You have entered an Arena \(PvP\) area.</value>
     <comment>when player enters pvp area</comment>
+  </data>
+  <data name="PVPAreaLeave" xml:space="preserve">
+    <value>LOADING, PLEASE WAIT...</value>
+    <comment>only known way currently of leaving pvp area for certain but may be zoning into pvp area on pvp server</comment>
   </data>
 </root>

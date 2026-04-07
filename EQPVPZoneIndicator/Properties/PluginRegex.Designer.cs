@@ -70,15 +70,6 @@ namespace LotFPlugins.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Direct Damage Spell.
-        /// </summary>
-        internal static string DirectDamageSpell {
-            get {
-                return ResourceManager.GetString("DirectDamageSpell", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to ddd MMM dd HH:mm:ss yyyy.
         /// </summary>
         internal static string eqDateTimeStampFormat {
@@ -120,6 +111,15 @@ namespace LotFPlugins.Properties {
         internal static string PVPAreaEnter {
             get {
                 return ResourceManager.GetString("PVPAreaEnter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LOADING, PLEASE WAIT....
+        /// </summary>
+        internal static string PVPAreaLeave {
+            get {
+                return ResourceManager.GetString("PVPAreaLeave", resourceCulture);
             }
         }
     }

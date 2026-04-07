@@ -68,12 +68,14 @@ namespace LotFPlugins
 
         #region Class Members       
         Regex pvpAreaEnter;
+        Regex pvpAreaLeave;
         #region UI Class Members
         TreeNode optionsNode = null;
         Label lblStatus;    // The status label that appears in ACT's Plugin tab
         #endregion
         private Label pvpIndicator;
         Action updateIndicator;
+        Action updateIndicatorLeftArena;
 
         #endregion
 
@@ -138,9 +140,15 @@ namespace LotFPlugins
             updateIndicator = new Action(() =>
             {
                 this.pvpIndicator.BackColor = Color.Red;
-                pvpIndicator.Text = "PVP ZONE";
+                ChangePluginStatusLabel("PVP Arena");
             });
 
+            updateIndicatorLeftArena = new Action(() =>
+            {
+                this.pvpIndicator.BackColor = Color.Green;
+                ChangePluginStatusLabel("Current PVP arena left");
+            });
+            pvpAreaLeave = new Regex(Properties.PluginRegex.PVPAreaLeave, RegexOptions.Compiled);
             pvpAreaEnter = new Regex(Properties.PluginRegex.PVPAreaEnter, RegexOptions.Compiled);
             ChangePluginStatusLabel($"{Properties.PluginRegex.pluginName} {Properties.PluginRegex.pluginStarted}");
             SetEventsForParsing();
@@ -183,7 +191,6 @@ namespace LotFPlugins
                 ActGlobals.oFormActMain.GetDateTimeFromLog -= ParseEQTimeStampFromLog;
                 ActGlobals.oFormActMain.BeforeLogLineRead -= FormActMain_LogLineRead;
             };
-
             void runDeInitActions()
             {
                 ActGlobals.oFormActMain.Invoke(removeOptionsFromMainForm);
@@ -221,6 +228,13 @@ namespace LotFPlugins
                 {
                     updateIndicator.Invoke();
                 }
+            }
+            else if(pvpAreaLeave.Match(logInfo.logLine).Success)
+            {
+                if (this.InvokeRequired)
+                    this.Invoke(updateIndicatorLeftArena);
+                else
+                    updateIndicatorLeftArena.Invoke();
             }
         }
 
