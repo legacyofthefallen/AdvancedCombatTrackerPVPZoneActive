@@ -5,9 +5,6 @@ This repository contains a build from GitHub's workflows but it is suggested tha
 
 Update feature removed and plugin file must be gotten from repository releases manually
 
-# Build Status
-[![ACT EverQuest DPS Plugin](https://github.com/legacyofthefallen/AdvancedCombatTrackerPVPZoneActive/actions/workflows/build-plugin-and-release-on-tag.yml/badge.svg)](https://github.com/legacyofthefallen/AdvancedCombatTrackerPVPZoneActive/actions/workflows/build-plugin-and-release-on-tag.yml)
-
 # EverQuestDPSPlugin
 Compiles with .NET 4.8 which is a version unavailable with github actions
 
